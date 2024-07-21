@@ -1,0 +1,30 @@
+[project]
+name = "geneteka-crawler"
+version = "0.1.0"
+description = "Crawler for geneteka.genealodzy.pl"
+authors = [
+    {name = "Andy Mikhaylenko", email = "neithere@gmail.com"}
+]
+readme = "README.md"
+license = {text = "GNU General Public License v3 or later (GPLv3+)"}
+
+dependencies = [
+    "argh",
+    "beautifulsoup4",
+    "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "mypy",
+    "types-beautifulsoup4",
+    "types-requests",
+]
+
+[project.scripts]
+geneteka-crawler = "geneteka_crawler:main_cli"
+
+[build-system]
+requires = ["flit_core >= 3.4"]
+build-backend = "flit_core.buildapi"
