@@ -74,7 +74,8 @@ def _parse_subtotal(cell):
         "total": int(cell.text),
     }
     if cell.a:
-        data["url"] = BASE_HOST + cell.a["href"]
+        url_path = cell.a['href']
+        data["url"] = f"{BASE_HOST}/{url_path}"
     return data
 
 
