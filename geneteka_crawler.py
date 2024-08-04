@@ -55,11 +55,15 @@ def parse_search_results(html):
 
         results.append(result)
 
+    def _normalise_number(number):
+        # thousand delimiter in source is a dot: 3.671 → 3671
+        return int(number.replace(".", ""))
+
     report = {
         "totals": {
-            "births": int(totals.find_next_sibling().text),
-            "deaths": int(totals.find_next_sibling().find_next_sibling().text),
-            "marriages": int(totals.find_next_sibling().find_next_sibling().find_next_sibling().text),
+            "births": _normalise_number(totals.find_next_sibling().text),
+            "deaths": _normalise_number(totals.find_next_sibling().find_next_sibling().text),
+            "marriages": _normalise_number(totals.find_next_sibling().find_next_sibling().find_next_sibling().text),
         },
         "by_region": results,
     }
