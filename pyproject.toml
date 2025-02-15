@@ -8,6 +8,8 @@ authors = [
 readme = "README.md"
 license = {text = "GNU General Public License v3 or later (GPLv3+)"}
 
+requires-python = ">=3.13"
+
 dependencies = [
     "argh",
     "beautifulsoup4",
@@ -26,5 +28,5 @@ dev = [
 geneteka-crawler = "geneteka_crawler:main_cli"
 
 [build-system]
-requires = ["flit_core >= 3.4"]
-build-backend = "flit_core.buildapi"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
